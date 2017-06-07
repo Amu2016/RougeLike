@@ -8,9 +8,9 @@ bool UILayer::init() {
 
 
 
-	joyStick = JoyStick::getInstance();
+	//joyStick = JoyStick::getInstance();
 	//addChild(joyStick);
-	joyStick->setPosition(Vec2(100, 100));
+	//joyStick->setPosition(Vec2(100, 100));
 
 
 	

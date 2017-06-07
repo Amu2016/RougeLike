@@ -60,6 +60,7 @@ public:
 
 	bool isDie();
 
+
 	bool isHaveCoollideFromHero();
 
 	void runBeHurtAnimate();

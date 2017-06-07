@@ -26,6 +26,7 @@ Vec2 MonsterBehavior::Calculate() {
 		break;
 	case WarmState::PURSUITBYPATH:
 		force = FollowPath();
+		//force += ObstacleAvoidance();
 		break;
 	default:
 		break;
@@ -86,7 +87,7 @@ Vec2 MonsterBehavior::FollowPath() {
 	//
 	//如果  到达后   继续执行这个函数    warm->getPath()->setNextWayPoint();  会出错，   溢出 list
 	//
-	if (warm->getPath()->currentWayPoint().distanceSquared(warm->getPosition()) < 10 * 10) {
+	if (warm->getPath()->currentWayPoint().distanceSquared(warm->getPosition()) < 5 * 5) {
 		if (warm->getPath()->Finished())
 			Arrive(warm->getPath()->currentWayPoint());
 		else

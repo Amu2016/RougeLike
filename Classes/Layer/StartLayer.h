@@ -6,13 +6,27 @@
 
 //class GameLayer;
 
-class StartLayer :public cocos2d::Layer {
+class StartLayer :public cocos2d::LayerColor {
 public:
+
+	static StartLayer* StartLayer::create()
+	{
+		Size visibleSize = Director::getInstance()->getVisibleSize();
+		StartLayer * layer = new (std::nothrow) StartLayer();
+		if (layer && layer->initWithColor(Color4B::RED, visibleSize.width, visibleSize.height))
+		{
+			layer->init();
+			layer->autorelease();
+			return layer;
+		}
+		CC_SAFE_DELETE(layer);
+		return nullptr;
+	}
 	virtual bool init();
 
 	void startGame();
 
-	CREATE_FUNC(StartLayer);
+	//CREATE_FUNC(StartLayer);
 
 };
 
