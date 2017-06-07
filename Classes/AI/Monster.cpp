@@ -3,7 +3,6 @@
 #include"Map\AStar.h"
 #include"Map/Map2D.h"
 #include"2D\Transformations.h"
-#include"Layer\NextLevelLayer.h"
 
 Monster* Monster::create() {
 	Monster* sprite = new Monster();
@@ -77,8 +76,6 @@ bool Monster::isDie() {
 
 	Gore* gore = Gore::create(goreType);
 
-	auto size = p_vecWarm->size();
-
 	gore->setPosition(getPosition());
 
 	getParent()->addChild(gore, 0);
@@ -92,17 +89,10 @@ bool Monster::isDie() {
 			iter++;
 	}
 
-	if (size == 1) {
-		auto nextLevelLayer = NextLevelLayer::create();
-		nextLevelLayer->setPosition(Vec2(-getParent()->getPosition().x, -getParent()->getPosition().y));
-		getParent()->addChild(nextLevelLayer, 2);
-	}
-
 	removeFromParent();
 
 	return true;
 }
-
 
 bool Monster::isHaveCoollideFromHero() {
 	auto pos = getPosition();

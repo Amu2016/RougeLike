@@ -22,16 +22,16 @@ void WarmPatrol::Execute(WarmMonster* warm) {
 	if (warm->isFlee()) {
 		warm->getStateMachine()->changeState(WarmFlee::getInstance());
 	}
-	//if (warm->isSeek()) {
-	//	if (warm->isHaveCoollideFromHero()) {
-	//		if (warm->setPath())
-	//			warm->getStateMachine()->changeState(PursuitByPath::getInstance());
-	//	}
-	//	else
-	//		warm->getStateMachine()->changeState(WarmAttack::getInstance());
-	//	warm->stopCalmAnimate();
-	//	warm->runAngerAnimate();
-	//}
+	if (warm->isSeek()) {
+		if (warm->isHaveCoollideFromHero()) {
+			if (warm->setPath())
+				warm->getStateMachine()->changeState(PursuitByPath::getInstance());
+		}
+		else
+			warm->getStateMachine()->changeState(WarmAttack::getInstance());
+		warm->stopCalmAnimate();
+		warm->runAngerAnimate();
+	}
 }
 
 void WarmPatrol::Exit(WarmMonster* warm) {
@@ -157,7 +157,6 @@ void PursuitByPath::Execute(WarmMonster* warm) {
 	}
 	if (warm->isWander()) {
 		warm->getStateMachine()->changeState(WarmPatrol::getInstance());
-		warm->runCalmAnimate();
 
 	}
 

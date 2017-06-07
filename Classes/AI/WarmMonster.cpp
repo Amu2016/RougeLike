@@ -36,7 +36,7 @@ bool WarmMonster::init() {
 
 	setMaxHp(50);
 	setNowHp(50);
-	setFleeHp(30);
+	setFleeHp(10);
 	setCordon(300);
 	setMaxCordon(300);
 

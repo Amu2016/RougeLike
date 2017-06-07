@@ -1,7 +1,6 @@
 #include"Hero.h"
 #include"Layer\UILayer.h"
 #include"HeroState.h"
-#include"Layer\GameOverLayer.h"
 
 float Hero::speed = 200;
 bool Hero::KeyDown = false;
@@ -58,11 +57,6 @@ void Hero::beHurt(int damage, Vec2 vec) {
 	else {
 		nowHp = nowHp - damage + mDefense;
 		runBeHurtAnimate(vec);
-	}
-	if (nowHp <= 0) {
-		auto gameOverLayer = GameOverLayer::create();
-		gameOverLayer->setPosition(Vec2(-getParent()->getPosition().x, -getParent()->getPosition().y));
-		getParent()->addChild(gameOverLayer, 2);
 	}
 }
 

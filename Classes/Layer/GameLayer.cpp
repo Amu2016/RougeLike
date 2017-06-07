@@ -3,7 +3,6 @@
 #include"MyRandom.h"
 #include"Map\Map2D.h"
 #include"Map\AStar.h"
-#include"Layer\GameOverLayer.h"
 
 bool GameLayer::init() {
 	if (!Layer::init()) return false;
@@ -44,7 +43,7 @@ bool GameLayer::init() {
 	auto mapDate = MyTileMap::getInstance()->getMapdata();
 	
 
-	for (int i = 1; i < 30; i++) {
+	for (int i = 1; i < 20; i++) {
 		WarmMonster* monster = WarmMonster::create();
 		monster->SetTraget(serber);
 
